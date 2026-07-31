@@ -62,6 +62,8 @@ jobs:
       - name: Commit and push changes
         if: steps.run_prettier.outputs.prettier_changes == 'true'
         run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
           git add .
           git commit -m "Chore: Format files with Prettier"
           git push origin HEAD:${{ github.head_ref }}
