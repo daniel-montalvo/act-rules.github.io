@@ -20,8 +20,8 @@ jobs:
           node-version: 24
           cache: npm
 
-      - name: Install prettier
-        run: npm install --global prettier
+      - name: Install dependencies
+        run: npm ci
 
       - name: Get changed files and run Prettier
         id: run_prettier
@@ -34,7 +34,7 @@ jobs:
             echo "$changed_files"
             
             # Run prettier on the changed files
-            echo "$changed_files" | xargs prettier --write
+            echo "$changed_files" | xargs npx --no-install prettier --write
             
             # Check if prettier actually made any changes
             if git diff --quiet && git diff --cached --quiet; then
