@@ -1,4 +1,5 @@
 #!/usr/bin/env zx
+
 import 'zx/globals'
 import assert from 'assert'
 import moment from 'moment'
